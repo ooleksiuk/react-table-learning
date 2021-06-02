@@ -6,10 +6,12 @@ export const COLUMNS = [
     // map each column to a specific data value in the mock data.
     // Help react table identify what data goes under which column
     // in each row
-    accessor: 'ind',
+    accessor: 'id',
   },
   {
+    // rendered header title
     Header: 'First Name',
+    // Json property name
     accessor: 'first_name',
   },
   {

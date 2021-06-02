@@ -1,3 +1,10 @@
+.main-container {
+  width: 80%;
+  min-width: 900px;
+  border: solid 2px #DEDEDE;
+  border-radius: 6px;
+}
+
 table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -5,18 +12,36 @@ table {
 }
 
 table td, table th {
-  border: 1px solid #ddd;
-  padding: 8px;
+  padding: 18px;
+  font-weight: normal;
 }
 
-table tr:nth-child(even){background-color: #f2f2f2;}
+table td {
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+  color: #393939;
+}
+
 
 table tr:hover {background-color: #ddd;}
 
 table th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: center;
-  background-color: #04AA6D;
-  color: white;
+  background-color: #F6F6F6;
+  color: #9A9A9A;
 }
+
+
+table th:not(th:nth-child(7))
+{
+  text-align: left;
+}
+
+table th:nth-child(7),
+table td:nth-child(7)
+{
+  text-align: right;
+}
+
+
