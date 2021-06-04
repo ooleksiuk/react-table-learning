@@ -1,37 +1,44 @@
 // labels for each of columns
 export const COLUMNS = [
   {
-    Header: 'Name',
+    Header: () => <div className="left-aligned-cell">Name </div>,
     // map each column to a specific data value in the mock data.
     // Help react table identify what data goes under which column
     // in each row
     accessor: 'firstName',
+    align: 'left',
+    Cell: (row) => <div className="left-aligned-cell">{row.value}</div>,
   },
   {
     // rendered header title
-    Header: 'Last Name',
+    Header: () => <div className="left-aligned-cell">Last Name</div>,
     // Json property name
     accessor: 'lastName',
+    Cell: (row) => <div className="left-aligned-cell">{row.value}</div>,
   },
   {
-    Header: 'Position',
+    Header: () => <div className="left-aligned-cell">Position</div>,
     accessor: 'positionName',
+    Cell: (row) => <div className="left-aligned-cell">{row.value}</div>,
   },
   {
-    Header: 'Department',
+    Header: () => <div className="left-aligned-cell">Department</div>,
     accessor: 'departmentName',
+    Cell: (row) => <div className="left-aligned-cell">{row.value}</div>,
   },
   {
     Header: 'Age',
     accessor: 'age',
+    Cell: (row) => <div className="center-aligned-cell">{row.value}</div>,
   },
   {
-    Header: 'Salary',
+    Header: () => <div className="right-aligned-cell">Salary</div>,
     accessor: 'salaryAnnual',
-    Cell: (props) => <div> toCurrency(props.value) </div>,
+    Cell: (row) => <div className="right-aligned-cell">{row.value}</div>,
   },
   {
-    Header: 'Employment time',
+    Header: () => <div className="left-aligned-cell">Employment time</div>,
     accessor: 'employmentTime',
+    Cell: (row) => <div className="left-aligned-cell">{row.value}</div>,
   },
 ];

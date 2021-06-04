@@ -32,22 +32,18 @@ table th {
   color: #9A9A9A;
 }
 
-
-table :not(th:nth-child(7))
-{
-  text-align: left;
-}
-
-table th:nth-child(7),
-table td:nth-child(7)
-{
-  text-align: right;
-}
-
-table th:nth-child(6),
-table td:nth-child(6)
-{
+.checkbox-body{
   text-align: center;
 }
 
+.left-aligned-cell{
+  text-align: left;
+}
 
+.center-aligned-cell{
+  text-align: center;
+}
+
+.right-aligned-cell{
+  text-align: right;
+}

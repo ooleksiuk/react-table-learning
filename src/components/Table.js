@@ -26,10 +26,14 @@ export const Table = () => {
           {
             id: 'selection',
             Header: ({ getToggleAllRowsSelectedProps }) => (
-              <Checkbox {...getToggleAllRowsSelectedProps()} />
+              <div className="checkbox-header">
+                <Checkbox {...getToggleAllRowsSelectedProps()} />
+              </div>
             ),
             Cell: ({ row }) => (
-              <Checkbox {...row.getToggleRowSelectedProps()} />
+              <div className="checkbox-body">
+                <Checkbox {...row.getToggleRowSelectedProps()} />
+              </div>
             ),
           },
           ...columns,
@@ -38,13 +42,23 @@ export const Table = () => {
     }
   );
 
+
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    page,
     prepareRow,
     selectedFlatRows,
+    // * Pagination *
+    page,
+    // helper functions for navigarion buttons:
+    nextPage,
+    previousPage,
+    //  boolean properties: indicate whether you can go next or previous
+    canNextPage,
+    canPreviousPage,
+    pageOptions,
+    state,
   } = tableInstance;
 
   return (
@@ -74,6 +88,14 @@ export const Table = () => {
           })}
         </tbody>
       </table>
+      <div>
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          &#9668;
+        </button>
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          &#9658;
+        </button>
+      </div>
       {/* checking selected rows feature*/}
       <pre>
         <code>
