@@ -1,33 +1,37 @@
 // labels for each of columns
-// ! mock data columns: email & age are intentionally ignored
 export const COLUMNS = [
   {
-    Header: 'Id',
+    Header: 'Name',
     // map each column to a specific data value in the mock data.
     // Help react table identify what data goes under which column
     // in each row
-    accessor: 'id',
+    accessor: 'firstName',
   },
   {
     // rendered header title
-    Header: 'First Name',
-    // Json property name
-    accessor: 'first_name',
-  },
-  {
     Header: 'Last Name',
-    accessor: 'last_name',
+    // Json property name
+    accessor: 'lastName',
   },
   {
-    Header: 'Date of Birth',
-    accessor: 'date_of_birth',
+    Header: 'Position',
+    accessor: 'positionName',
   },
   {
-    Header: 'Country',
-    accessor: 'country',
+    Header: 'Department',
+    accessor: 'departmentName',
   },
   {
-    Header: 'Phone',
-    accessor: 'phone',
+    Header: 'Age',
+    accessor: 'age',
+  },
+  {
+    Header: 'Salary',
+    accessor: 'salaryAnnual',
+    Cell: (props) => <div> toCurrency(props.value) </div>,
+  },
+  {
+    Header: 'Employment time',
+    accessor: 'employmentTime',
   },
 ];
