@@ -47,3 +47,9 @@ table th {
 .right-aligned-cell{
   text-align: right;
 }
+
+.control-panel{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+}

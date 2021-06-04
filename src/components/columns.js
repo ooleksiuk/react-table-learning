@@ -34,11 +34,18 @@ export const COLUMNS = [
   {
     Header: () => <div className="right-aligned-cell">Salary</div>,
     accessor: 'salaryAnnual',
-    Cell: (row) => <div className="right-aligned-cell">{row.value}</div>,
+    Cell: (row) => (
+      <div className="right-aligned-cell">
+        {row.value.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        })}
+      </div>
+    ),
   },
   {
     Header: () => <div className="left-aligned-cell">Employment time</div>,
     accessor: 'employmentTime',
-    Cell: (row) => <div className="left-aligned-cell">{row.value}</div>,
+    Cell: (row) => <div className="left-aligned-cell"> {row.value}</div>,
   },
 ];

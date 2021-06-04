@@ -42,7 +42,6 @@ export const Table = () => {
     }
   );
 
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -54,12 +53,17 @@ export const Table = () => {
     // helper functions for navigarion buttons:
     nextPage,
     previousPage,
-    //  boolean properties: indicate whether you can go next or previous
+    //  boolean properties
     canNextPage,
     canPreviousPage,
+    // overall page number (pageOptions.length)
     pageOptions,
     state,
+    setPageSize,
   } = tableInstance;
+
+  // current page number is pageIndex+1
+  const { pageIndex, pageSize } = state;
 
   return (
     <div class="main-container ">
@@ -88,15 +92,34 @@ export const Table = () => {
           })}
         </tbody>
       </table>
-      <div>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          &#9668;
-        </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          &#9658;
-        </button>
+      <div className="control-panel">
+        <select
+          value={pageSize}
+          onChange={(e) => setPageSize(Number(e.target.value))}
+        >
+          {[10, 20, 50].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              Rows per page {pageSize}
+            </option>
+          ))}
+        </select>
+
+        <span>
+          Page{' '}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>{' '}
+        </span>
+        <div className="pagination-buttons">
+          <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+            &#9668;
+          </button>
+          <button onClick={() => nextPage()} disabled={!canNextPage}>
+            &#9658;
+          </button>
+        </div>
       </div>
-      {/* checking selected rows feature*/}
+      {/* checking selected rows feature
       <pre>
         <code>
           {JSON.stringify(
@@ -107,7 +130,7 @@ export const Table = () => {
             '\t'
           )}
         </code>
-      </pre>
+      </pre> */}
     </div>
   );
 };
